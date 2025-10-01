@@ -11,6 +11,12 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@base-ui-components/react": "1.0.0-beta.3",
+    "@floating-ui/react": "^0.27.16",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-separator": "^1.1.7",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-tooltip": "^1.2.8",
     "@tailwindcss/postcss": "4.1.7",
     "@types/node": "^22.15.18",
     "@types/react": "19.1.4",
@@ -24,7 +30,9 @@
     "drizzle-orm": "^0.43.1",
     "jose": "^6.0.11",
     "lucide-react": "^0.511.0",
+    "motion": "^12.23.13",
     "next": "15.4.0-canary.47",
+    "ogl": "^1.0.11",
     "postcss": "^8.5.3",
     "postgres": "^3.4.5",
     "radix-ui": "^1.4.2",
