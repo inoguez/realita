@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import * as React from 'react';
+import * as React from "react";
 
 import {
   Breadcrumb,
@@ -9,8 +9,8 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
-import { Separator } from '@/components/ui/separator';
+} from "@/components/ui/breadcrumb";
+import { Separator } from "@/components/ui/separator";
 import {
   SidebarProvider,
   SidebarInset,
@@ -29,12 +29,12 @@ import {
   SidebarMenuSubItem,
   SidebarMenuSubButton,
   SidebarMenuAction,
-} from '@/components/animate-ui/components/radix/sidebar';
+} from "@/components/animate-ui/components/radix/sidebar";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@/components/animate-ui/primitives/radix/collapsible';
+} from "@/components/animate-ui/primitives/radix/collapsible";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -44,7 +44,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from '@/components/animate-ui/components/radix/dropdown-menu';
+} from "@/components/ui/dropdown-menu";
 import {
   AudioWaveform,
   BadgeCheck,
@@ -68,135 +68,135 @@ import {
   Sparkles,
   SquareTerminal,
   Trash2,
-} from 'lucide-react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { useIsMobile } from '@/hooks/use-mobile';
+} from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const DATA = {
   user: {
-    name: 'Skyleen',
-    email: 'skyleen@example.com',
+    name: "Skyleen",
+    email: "skyleen@example.com",
     avatar:
-      'https://pbs.twimg.com/profile_images/1909615404789506048/MTqvRsjo_400x400.jpg',
+      "https://pbs.twimg.com/profile_images/1909615404789506048/MTqvRsjo_400x400.jpg",
   },
   teams: [
     {
-      name: 'Acme Inc',
+      name: "Acme Inc",
       logo: GalleryVerticalEnd,
-      plan: 'Enterprise',
+      plan: "Enterprise",
     },
     {
-      name: 'Acme Corp.',
+      name: "Acme Corp.",
       logo: AudioWaveform,
-      plan: 'Startup',
+      plan: "Startup",
     },
     {
-      name: 'Evil Corp.',
+      name: "Evil Corp.",
       logo: Command,
-      plan: 'Free',
+      plan: "Free",
     },
   ],
   navMain: [
     {
-      title: 'Playground',
-      url: '#',
+      title: "Playground",
+      url: "#",
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
-          title: 'History',
-          url: '#',
+          title: "History",
+          url: "#",
         },
         {
-          title: 'Starred',
-          url: '#',
+          title: "Starred",
+          url: "#",
         },
         {
-          title: 'Settings',
-          url: '#',
+          title: "Settings",
+          url: "#",
         },
       ],
     },
     {
-      title: 'Models',
-      url: '#',
+      title: "Models",
+      url: "#",
       icon: Bot,
       items: [
         {
-          title: 'Genesis',
-          url: '#',
+          title: "Genesis",
+          url: "#",
         },
         {
-          title: 'Explorer',
-          url: '#',
+          title: "Explorer",
+          url: "#",
         },
         {
-          title: 'Quantum',
-          url: '#',
+          title: "Quantum",
+          url: "#",
         },
       ],
     },
     {
-      title: 'Documentation',
-      url: '#',
+      title: "Documentation",
+      url: "#",
       icon: BookOpen,
       items: [
         {
-          title: 'Introduction',
-          url: '#',
+          title: "Introduction",
+          url: "#",
         },
         {
-          title: 'Get Started',
-          url: '#',
+          title: "Get Started",
+          url: "#",
         },
         {
-          title: 'Tutorials',
-          url: '#',
+          title: "Tutorials",
+          url: "#",
         },
         {
-          title: 'Changelog',
-          url: '#',
+          title: "Changelog",
+          url: "#",
         },
       ],
     },
     {
-      title: 'Settings',
-      url: '#',
+      title: "Settings",
+      url: "#",
       icon: Settings2,
       items: [
         {
-          title: 'General',
-          url: '#',
+          title: "General",
+          url: "#",
         },
         {
-          title: 'Team',
-          url: '#',
+          title: "Team",
+          url: "#",
         },
         {
-          title: 'Billing',
-          url: '#',
+          title: "Billing",
+          url: "#",
         },
         {
-          title: 'Limits',
-          url: '#',
+          title: "Limits",
+          url: "#",
         },
       ],
     },
   ],
   projects: [
     {
-      name: 'Design Engineering',
-      url: '#',
+      name: "Design Engineering",
+      url: "#",
       icon: Frame,
     },
     {
-      name: 'Sales & Marketing',
-      url: '#',
+      name: "Sales & Marketing",
+      url: "#",
       icon: PieChart,
     },
     {
-      name: 'Travel',
-      url: '#',
+      name: "Travel",
+      url: "#",
       icon: Map,
     },
   ],
@@ -210,7 +210,7 @@ export const SideBar = () => {
 
   return (
     <SidebarProvider>
-      <Sidebar collapsible='icon'>
+      <Sidebar collapsible="icon">
         <SidebarHeader>
           {/* Team Switcher */}
           <SidebarMenu>
@@ -218,51 +218,51 @@ export const SideBar = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <SidebarMenuButton
-                    size='lg'
-                    className='data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground'
+                    size="lg"
+                    className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                   >
-                    <div className='flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground'>
-                      <activeTeam.logo className='size-4' />
+                    <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                      <activeTeam.logo className="size-4" />
                     </div>
-                    <div className='grid flex-1 text-left text-sm leading-tight'>
-                      <span className='truncate font-semibold'>
+                    <div className="grid flex-1 text-left text-sm leading-tight">
+                      <span className="truncate font-semibold">
                         {activeTeam.name}
                       </span>
-                      <span className='truncate text-xs'>
+                      <span className="truncate text-xs">
                         {activeTeam.plan}
                       </span>
                     </div>
-                    <ChevronsUpDown className='ml-auto' />
+                    <ChevronsUpDown className="ml-auto" />
                   </SidebarMenuButton>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
-                  className='w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg'
-                  align='start'
-                  side={isMobile ? 'bottom' : 'right'}
+                  className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
+                  align="start"
+                  side={isMobile ? "bottom" : "right"}
                   sideOffset={4}
                 >
-                  <DropdownMenuLabel className='text-xs text-muted-foreground'>
+                  <DropdownMenuLabel className="text-xs text-muted-foreground">
                     Teams
                   </DropdownMenuLabel>
                   {DATA.teams.map((team, index) => (
                     <DropdownMenuItem
                       key={team.name}
                       onClick={() => setActiveTeam(team)}
-                      className='gap-2 p-2'
+                      className="gap-2 p-2"
                     >
-                      <div className='flex size-6 items-center justify-center rounded-sm border'>
-                        <team.logo className='size-4 shrink-0' />
+                      <div className="flex size-6 items-center justify-center rounded-sm border">
+                        <team.logo className="size-4 shrink-0" />
                       </div>
                       {team.name}
                       <DropdownMenuShortcut>⌘{index + 1}</DropdownMenuShortcut>
                     </DropdownMenuItem>
                   ))}
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem className='gap-2 p-2'>
-                    <div className='flex size-6 items-center justify-center rounded-md border bg-background'>
-                      <Plus className='size-4' />
+                  <DropdownMenuItem className="gap-2 p-2">
+                    <div className="flex size-6 items-center justify-center rounded-md border bg-background">
+                      <Plus className="size-4" />
                     </div>
-                    <div className='font-medium text-muted-foreground'>
+                    <div className="font-medium text-muted-foreground">
                       Add team
                     </div>
                   </DropdownMenuItem>
@@ -283,14 +283,14 @@ export const SideBar = () => {
                   key={item.title}
                   asChild
                   defaultOpen={item.isActive}
-                  className='group/collapsible'
+                  className="group/collapsible"
                 >
                   <SidebarMenuItem>
                     <CollapsibleTrigger asChild>
                       <SidebarMenuButton tooltip={item.title}>
                         {item.icon && <item.icon />}
                         <span>{item.title}</span>
-                        <ChevronRight className='ml-auto transition-transform duration-300 group-data-[state=open]/collapsible:rotate-90' />
+                        <ChevronRight className="ml-auto transition-transform duration-300 group-data-[state=open]/collapsible:rotate-90" />
                       </SidebarMenuButton>
                     </CollapsibleTrigger>
                     <CollapsibleContent>
@@ -314,7 +314,7 @@ export const SideBar = () => {
           {/* Nav Main */}
 
           {/* Nav Project */}
-          <SidebarGroup className='group-data-[collapsible=icon]:hidden'>
+          <SidebarGroup className="group-data-[collapsible=icon]:hidden">
             <SidebarGroupLabel>Projects</SidebarGroupLabel>
             <SidebarMenu>
               {DATA.projects.map((item) => (
@@ -329,25 +329,25 @@ export const SideBar = () => {
                     <DropdownMenuTrigger asChild>
                       <SidebarMenuAction showOnHover>
                         <MoreHorizontal />
-                        <span className='sr-only'>More</span>
+                        <span className="sr-only">More</span>
                       </SidebarMenuAction>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent
-                      className='w-48 rounded-lg'
-                      side={isMobile ? 'bottom' : 'right'}
-                      align={isMobile ? 'end' : 'start'}
+                      className="w-48 rounded-lg"
+                      side={isMobile ? "bottom" : "right"}
+                      align={isMobile ? "end" : "start"}
                     >
                       <DropdownMenuItem>
-                        <Folder className='text-muted-foreground' />
+                        <Folder className="text-muted-foreground" />
                         <span>View Project</span>
                       </DropdownMenuItem>
                       <DropdownMenuItem>
-                        <Forward className='text-muted-foreground' />
+                        <Forward className="text-muted-foreground" />
                         <span>Share Project</span>
                       </DropdownMenuItem>
                       <DropdownMenuSeparator />
                       <DropdownMenuItem>
-                        <Trash2 className='text-muted-foreground' />
+                        <Trash2 className="text-muted-foreground" />
                         <span>Delete Project</span>
                       </DropdownMenuItem>
                     </DropdownMenuContent>
@@ -355,8 +355,8 @@ export const SideBar = () => {
                 </SidebarMenuItem>
               ))}
               <SidebarMenuItem>
-                <SidebarMenuButton className='text-sidebar-foreground/70'>
-                  <MoreHorizontal className='text-sidebar-foreground/70' />
+                <SidebarMenuButton className="text-sidebar-foreground/70">
+                  <MoreHorizontal className="text-sidebar-foreground/70" />
                   <span>More</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -371,49 +371,49 @@ export const SideBar = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <SidebarMenuButton
-                    size='lg'
-                    className='data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground'
+                    size="lg"
+                    className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                   >
-                    <Avatar className='h-8 w-8 rounded-lg'>
+                    <Avatar className="h-8 w-8 rounded-lg">
                       <AvatarImage
                         src={DATA.user.avatar}
                         alt={DATA.user.name}
                       />
-                      <AvatarFallback className='rounded-lg'>CN</AvatarFallback>
+                      <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                     </Avatar>
-                    <div className='grid flex-1 text-left text-sm leading-tight'>
-                      <span className='truncate font-semibold'>
+                    <div className="grid flex-1 text-left text-sm leading-tight">
+                      <span className="truncate font-semibold">
                         {DATA.user.name}
                       </span>
-                      <span className='truncate text-xs'>
+                      <span className="truncate text-xs">
                         {DATA.user.email}
                       </span>
                     </div>
-                    <ChevronsUpDown className='ml-auto size-4' />
+                    <ChevronsUpDown className="ml-auto size-4" />
                   </SidebarMenuButton>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
-                  className='w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg'
-                  side={isMobile ? 'bottom' : 'right'}
-                  align='end'
+                  className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
+                  side={isMobile ? "bottom" : "right"}
+                  align="end"
                   sideOffset={4}
                 >
-                  <DropdownMenuLabel className='p-0 font-normal'>
-                    <div className='flex items-center gap-2 px-1 py-1.5 text-left text-sm'>
-                      <Avatar className='h-8 w-8 rounded-lg'>
+                  <DropdownMenuLabel className="p-0 font-normal">
+                    <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+                      <Avatar className="h-8 w-8 rounded-lg">
                         <AvatarImage
                           src={DATA.user.avatar}
                           alt={DATA.user.name}
                         />
-                        <AvatarFallback className='rounded-lg'>
+                        <AvatarFallback className="rounded-lg">
                           CN
                         </AvatarFallback>
                       </Avatar>
-                      <div className='grid flex-1 text-left text-sm leading-tight'>
-                        <span className='truncate font-semibold'>
+                      <div className="grid flex-1 text-left text-sm leading-tight">
+                        <span className="truncate font-semibold">
                           {DATA.user.name}
                         </span>
-                        <span className='truncate text-xs'>
+                        <span className="truncate text-xs">
                           {DATA.user.email}
                         </span>
                       </div>
@@ -456,18 +456,18 @@ export const SideBar = () => {
       </Sidebar>
 
       <SidebarInset>
-        <header className='flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12'>
-          <div className='flex items-center gap-2 px-4'>
-            <SidebarTrigger className='-ml-1' />
-            <Separator orientation='vertical' className='mr-2 h-4' />
+        <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
+          <div className="flex items-center gap-2 px-4">
+            <SidebarTrigger className="-ml-1" />
+            <Separator orientation="vertical" className="mr-2 h-4" />
             <Breadcrumb>
               <BreadcrumbList>
-                <BreadcrumbItem className='hidden md:block'>
-                  <BreadcrumbLink href='#'>
+                <BreadcrumbItem className="hidden md:block">
+                  <BreadcrumbLink href="#">
                     Building Your Application
                   </BreadcrumbLink>
                 </BreadcrumbItem>
-                <BreadcrumbSeparator className='hidden md:block' />
+                <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
                   <BreadcrumbPage>Data Fetching</BreadcrumbPage>
                 </BreadcrumbItem>
@@ -475,13 +475,13 @@ export const SideBar = () => {
             </Breadcrumb>
           </div>
         </header>
-        <div className='flex flex-1 flex-col gap-4 p-4 pt-0'>
-          <div className='grid auto-rows-min gap-4 md:grid-cols-3'>
-            <div className='aspect-video rounded-xl bg-muted/50' />
-            <div className='aspect-video rounded-xl bg-muted/50' />
-            <div className='aspect-video rounded-xl bg-muted/50' />
+        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
+          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
+            <div className="aspect-video rounded-xl bg-muted/50" />
+            <div className="aspect-video rounded-xl bg-muted/50" />
+            <div className="aspect-video rounded-xl bg-muted/50" />
           </div>
-          <div className='min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min' />
+          <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
         </div>
       </SidebarInset>
     </SidebarProvider>

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Button } from '@/components/ui/button';
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
 import {
   Users,
   Settings,
@@ -25,7 +25,7 @@ import {
   Bell,
   LogOut,
   ChevronRight,
-} from 'lucide-react';
+} from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -44,7 +44,7 @@ import {
   SidebarProvider,
   SidebarRail,
   SidebarTrigger,
-} from '@/components/animate-ui/components/radix/sidebar';
+} from "@/components/animate-ui/components/radix/sidebar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -54,50 +54,50 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from "@/components/ui/dropdown-menu";
 
-import { cn } from '@/lib/utils';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { cn } from "@/lib/utils";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@/components/animate-ui/primitives/radix/collapsible';
-import { SideBar } from './components/sidebar';
+} from "@/components/animate-ui/primitives/radix/collapsible";
+import { SideBar } from "./components/sidebar";
 const items = [
   {
-    title: 'Tablero',
-    url: '/dashboard',
+    title: "Tablero",
+    url: "/dashboard",
     icon: LayoutDashboard,
   },
   {
-    title: 'Inquilinos',
-    url: '#',
+    title: "Inquilinos",
+    url: "#",
     icon: User,
   },
   {
-    title: 'Propiedades',
-    url: '#',
+    title: "Propiedades",
+    url: "#",
     icon: House,
   },
   {
-    title: 'Pagos',
-    url: '#',
+    title: "Pagos",
+    url: "#",
     icon: CreditCard,
   },
 ];
 interface AppMode {
-  name: 'Inquilino' | 'Arrendador';
+  name: "Inquilino" | "Arrendador";
   icon: typeof PersonStanding | typeof House;
 }
 
 function AppModeSwitcher() {
   const appModes: AppMode[] = [
-    { name: 'Inquilino', icon: PersonStanding },
-    { name: 'Arrendador', icon: House },
+    { name: "Inquilino", icon: PersonStanding },
+    { name: "Arrendador", icon: House },
   ];
   const [appMode, setAppMode] = useState<AppMode>({
-    name: 'Inquilino',
+    name: "Inquilino",
     icon: PersonStanding,
   });
   return (
@@ -106,8 +106,8 @@ function AppModeSwitcher() {
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton
-              size='lg'
-              className='data-[state=open]:bg-electric-blue data-[state=open]:text-sidebar-accent-foreground'
+              size="lg"
+              className="data-[state=open]:bg-electric-blue data-[state=open]:text-sidebar-accent-foreground"
             >
               {/* <div className='flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground'>
                     <activeTeam.logo className='size-4' />
@@ -118,35 +118,35 @@ function AppModeSwitcher() {
                     </span>
                     <span className='truncate text-xs'>{activeTeam.plan}</span>
                   </div> */}
-              <appMode.icon className={cn('size-4')} />
+              <appMode.icon className={cn("size-4")} />
               {appMode.name}
-              <ChevronsUpDown className='ml-auto' />
+              <ChevronsUpDown className="ml-auto" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
-            className='w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg'
-            align='start'
+            className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
+            align="start"
             /* side={isMobile ? 'bottom' : 'right'} */
             sideOffset={4}
           >
-            <DropdownMenuLabel className='text-xs text-muted-foreground'>
+            <DropdownMenuLabel className="text-xs text-muted-foreground">
               Tipo de usuario
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             {appModes?.map((mode) => (
               <DropdownMenuItem
-                className={cn('gap-2 p-2', {
-                  'bg-electric-blue text-white': appMode.name === mode.name,
+                className={cn("gap-2 p-2", {
+                  "bg-electric-blue text-white": appMode.name === mode.name,
                 })}
                 onClick={() => setAppMode(mode)}
               >
                 {mode.icon && (
                   <mode.icon
-                    className={cn('size-4', {
-                      'text-white': appMode.name === mode.name,
+                    className={cn("size-4", {
+                      "text-white": appMode.name === mode.name,
                     })}
                   />
-                )}{' '}
+                )}{" "}
                 {mode.name}
               </DropdownMenuItem>
             ))}
@@ -183,7 +183,7 @@ function AppModeSwitcher() {
 function SideBar2() {
   return (
     <Sidebar>
-      <SidebarHeader title='Realita'>
+      <SidebarHeader title="Realita">
         {/* Team Switcher */}
         <AppModeSwitcher />
         {/* Team Switcher */}
@@ -203,21 +203,21 @@ function SideBar2() {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
-              <Collapsible asChild className='group/collapsible'>
+              <Collapsible asChild className="group/collapsible">
                 <SidebarMenuItem>
                   <CollapsibleTrigger asChild>
-                    <SidebarMenuButton tooltip={'Configuración'}>
+                    <SidebarMenuButton tooltip={"Configuración"}>
                       {/* {item.icon && <item.icon />} */}
                       <span>Configuración</span>
-                      <ChevronRight className='ml-auto transition-transform duration-300 group-data-[state=open]/collapsible:rotate-90' />
+                      <ChevronRight className="ml-auto transition-transform duration-300 group-data-[state=open]/collapsible:rotate-90" />
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
                   <CollapsibleContent>
                     <SidebarMenuSub>
-                      <SidebarMenuSubItem key={'Perfil'}>
+                      <SidebarMenuSubItem key={"Perfil"}>
                         <SidebarMenuSubButton asChild>
-                          <a href={'#'}>
-                            <span>{'Perfil'}</span>
+                          <a href={"#"}>
+                            <span>{"Perfil"}</span>
                           </a>
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
@@ -245,38 +245,38 @@ function SideBar2() {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <SidebarMenuButton
-                  size='lg'
-                  className='data-[state=open]:bg-electric-blue data-[state=open]:text-sidebar-accent-foreground'
+                  size="lg"
+                  className="data-[state=open]:bg-electric-blue data-[state=open]:text-sidebar-accent-foreground"
                 >
-                  <Avatar className='h-8 w-8 rounded-lg'>
+                  <Avatar className="h-8 w-8 rounded-lg">
                     {/* <AvatarImage src={DATA.user.avatar} alt='%usuario%'/> */}
-                    <AvatarFallback className='rounded-lg'>CN</AvatarFallback>
+                    <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                   </Avatar>
-                  <div className='grid flex-1 text-left text-sm leading-tight'>
-                    <span className='truncate font-semibold'>%usuario%</span>
-                    <span className='truncate text-xs'>{'%usuario%'}</span>
+                  <div className="grid flex-1 text-left text-sm leading-tight">
+                    <span className="truncate font-semibold">%usuario%</span>
+                    <span className="truncate text-xs">{"%usuario%"}</span>
                   </div>
-                  <ChevronsUpDown className='ml-auto size-4' />
+                  <ChevronsUpDown className="ml-auto size-4" />
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent
-                className='w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg'
+                className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
                 // side={isMobile ? 'bottom' : 'right'}
-                align='end'
+                align="end"
                 sideOffset={4}
               >
-                <DropdownMenuLabel className='p-0 font-normal'>
-                  <div className='flex items-center gap-2 px-1 py-1.5 text-left text-sm'>
-                    <Avatar className='h-8 w-8 rounded-lg'>
+                <DropdownMenuLabel className="p-0 font-normal">
+                  <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+                    <Avatar className="h-8 w-8 rounded-lg">
                       {/* <AvatarImage
                         src={DATA.user.avatar}
                         alt=%usuario%
                       /> */}
-                      <AvatarFallback className='rounded-lg'>CN</AvatarFallback>
+                      <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                     </Avatar>
-                    <div className='grid flex-1 text-left text-sm leading-tight'>
-                      <span className='truncate font-semibold'>%usuario%</span>
-                      <span className='truncate text-xs'>{'%usuario%'}</span>
+                    <div className="grid flex-1 text-left text-sm leading-tight">
+                      <span className="truncate font-semibold">%usuario%</span>
+                      <span className="truncate text-xs">{"%usuario%"}</span>
                     </div>
                   </div>
                 </DropdownMenuLabel>
@@ -326,31 +326,31 @@ export default function DashboardLayout({
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const navItems = [
-    { href: '/dashboard', icon: Users, label: 'Team' },
-    { href: '/dashboard/general', icon: Settings, label: 'General' },
-    { href: '/dashboard/activity', icon: Activity, label: 'Activity' },
-    { href: '/dashboard/security', icon: Shield, label: 'Security' },
+    { href: "/dashboard", icon: Users, label: "Team" },
+    { href: "/dashboard/general", icon: Settings, label: "General" },
+    { href: "/dashboard/activity", icon: Activity, label: "Activity" },
+    { href: "/dashboard/security", icon: Shield, label: "Security" },
   ];
 
   return (
     <SidebarProvider>
-      <div className='flex flex-col min-h-[calc(100dvh-68px)] w-full'>
+      <div className="flex flex-col min-h-[calc(100dvh-68px)] w-full">
         {/* Mobile header */}
-        <div className='lg:hidden flex items-center justify-between bg-white border-b border-gray-200 p-4'>
-          <div className='flex items-center'>
-            <span className='font-medium'>Settings</span>
+        {/*<div className="lg:hidden flex items-center justify-between bg-white border-b border-gray-200 p-4">
+          <div className="flex items-center">
+            <span className="font-medium">Settings</span>
           </div>
           <Button
-            className='-mr-3'
-            variant='ghost'
+            className="-mr-3"
+            variant="ghost"
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           >
-            <Menu className='h-6 w-6' />
-            <span className='sr-only'>Toggle sidebar</span>
+            <Menu className="h-6 w-6" />
+            <span className="sr-only">Toggle sidebar</span>
           </Button>
-        </div>
+        </div>*/}
 
-        <div className='flex flex-1 overflow-hidden h-full'>
+        <div className="flex flex-1 overflow-hidden h-full">
           {/* Sidebar */}
           <SideBar />
           {/*  <aside
@@ -379,11 +379,6 @@ export default function DashboardLayout({
         </aside> */}
 
           {/* Main content */}
-
-          <main className='flex-1 overflow-y-auto p-0 '>
-            <SidebarTrigger />
-            {children}
-          </main>
         </div>
       </div>
     </SidebarProvider>
